@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`push-commit: push-commit 1`] = `
+Array [
+  "send_group_msg",
+  Object {
+    "auto_escape": false,
+    "group_id": 123,
+    "message": "[GitHub] Push (koishijs/koishi)
+Ref: refs/heads/develop
+User: Shigma
+Compare: https://github.com/koishijs/koishi/compare/976c6e8f09a4...3ae7e7044d06
+chore: adjust
+fix(core): create major context at demand",
+  },
+]
+`;
+
+exports[`push-tag: push-tag 1`] = `
+Array [
+  "send_group_msg",
+  Object {
+    "auto_escape": false,
+    "group_id": 123,
+    "message": "[GitHub] koishijs/koishi published tag 1.5.0",
+  },
+]
+`;

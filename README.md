@@ -1,2 +1,3 @@
 # plugin-github-webhook
- Using GitHub webhook in your QQ bots
+
+Using GitHub Webhooks with Koishi.
