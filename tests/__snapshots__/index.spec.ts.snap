@@ -1,6 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`push-commit: push-commit 1`] = `
+exports[`issue_comment.created: issue_comment.created 1`] = `
+Array [
+  "send_group_msg",
+  Object {
+    "auto_escape": false,
+    "group_id": 123,
+    "message": "[GitHub] Issue Comment (koishijs/koishi#19)
+User: simon300000
+URL: https://github.com/koishijs/koishi/issues/19#issuecomment-576277946
+Mich würde auch interessieren, was ist „CoolQ“?",
+  },
+]
+`;
+
+exports[`issues.opened: issues.opened 1`] = `
+Array [
+  "send_group_msg",
+  Object {
+    "auto_escape": false,
+    "group_id": 123,
+    "message": "[GitHub] Issue Opened (koishijs/koishi#19)
+Title: Wie kann man um das Koishi zu installieren?
+User: simon300000
+URL: https://github.com/koishijs/koishi/issues/19
+Ich verstecke Englisch und Chinesisch nicht! Gab es Personen, die mir helfen kann?",
+  },
+]
+`;
+
+exports[`push.commit: push.commit 1`] = `
 Array [
   "send_group_msg",
   Object {
@@ -16,7 +45,7 @@ fix(core): create major context at demand",
 ]
 `;
 
-exports[`push-tag: push-tag 1`] = `
+exports[`push.tag: push.tag 1`] = `
 Array [
   "send_group_msg",
   Object {

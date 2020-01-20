@@ -17,7 +17,7 @@ const webhook = webhooks['/secret12140']
 
 readdirSync(resolve(__dirname, '__fixtures__')).forEach((file) => {
   file = file.slice(0, -5)
-  const [name] = file.split('-', 1)
+  const [name] = file.split('.', 1)
   const payload = require(`./__fixtures__/${file}`)
 
   test(file, async () => {
