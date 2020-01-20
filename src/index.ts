@@ -63,24 +63,6 @@ export function apply (ctx: Context, options: Record<string, number[]> = {}) {
     }
   }
 
-  webhook.on('push', wrapHandler<WebhookAPI.WebhookPayloadPush>(({ compare, pusher, commits, repository, ref, after }) => {
-    // do not show pull request merge
-    if (/^0+$/.test(after)) return
-
-    // use short form for tag releases
-    if (ref.startsWith('refs/tags')) {
-      return `[GitHub] ${repository.full_name} published tag ${ref.slice(10)}`
-    }
-
-    return [
-      `[GitHub] Push (${repository.full_name})`,
-      `Ref: ${ref}`,
-      `User: ${pusher.name}`,
-      `Compare: ${compare}`,
-      ...commits.map(c => c.message.replace(/\n\s*\n/g, '\n')),
-    ].join('\n')
-  }))
-
   webhook.on('commit_comment.created', wrapHandler<WebhookAPI.WebhookPayloadCommitComment>(({ repository, comment }) => {
     return [
       `[GitHub] Commit Comment (${repository.full_name})`,
@@ -137,6 +119,24 @@ export function apply (ctx: Context, options: Record<string, number[]> = {}) {
       `User: ${comment.user.login}`,
       `URL: ${comment.html_url}`,
       comment.body.replace(/\n\s*\n/g, '\n'),
+    ].join('\n')
+  }))
+
+  webhook.on('push', wrapHandler<WebhookAPI.WebhookPayloadPush>(({ compare, pusher, commits, repository, ref, after }) => {
+    // do not show pull request merge
+    if (/^0+$/.test(after)) return
+
+    // use short form for tag releases
+    if (ref.startsWith('refs/tags')) {
+      return `[GitHub] ${repository.full_name} published tag ${ref.slice(10)}`
+    }
+
+    return [
+      `[GitHub] Push (${repository.full_name})`,
+      `Ref: ${ref}`,
+      `User: ${pusher.name}`,
+      `Compare: ${compare}`,
+      ...commits.map(c => c.message.replace(/\n\s*\n/g, '\n')),
     ].join('\n')
   }))
 }
