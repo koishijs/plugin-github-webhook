@@ -114,7 +114,7 @@ export function apply (ctx: Context, options: Record<string, number[]> = {}) {
 
   webhook.on('pull_request_review_comment.created', wrapHandler<WebhookAPI.WebhookPayloadPullRequestReviewComment>(({ repository, comment, pull_request }) => {
     return [
-      `[GitHub] Pull Request Review (${repository.full_name}#${pull_request.id})`,
+      `[GitHub] Pull Request Review Comment (${repository.full_name}#${pull_request.id})`,
       `Path: ${comment.path}`,
       `User: ${comment.user.login}`,
       `URL: ${comment.html_url}`,

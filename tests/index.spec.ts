@@ -22,6 +22,6 @@ readdirSync(resolve(__dirname, '__fixtures__')).forEach((file) => {
 
   test(file, async () => {
     await webhook.receive({ id: 'id', name, payload })
-    app.shouldHaveLastRequestMatchSnapshot(file)
+    app.shouldMatchSnapshot(file)
   })
 })
